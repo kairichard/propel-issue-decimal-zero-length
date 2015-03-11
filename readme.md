@@ -13,7 +13,7 @@ because the schema does not match with the generated migration.
 
 If you run into trouble on OSX
 
-Unable to open PDO connection `[wrapped: SQLSTATE[HY000] [2002] No such file or directory]`
+`Unable to open PDO connection [wrapped: SQLSTATE[HY000] [2002] No such file or directory]`
 On Terminal, execute these commands
 
 ```bash
