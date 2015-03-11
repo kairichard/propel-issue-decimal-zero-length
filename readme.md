@@ -1,6 +1,6 @@
 Propel issue 
 
-When working with a legacy database that has field like the follwing
+When working with a legacy database that has field like the following
 
 ```mysql
   `field_name` decimal(11,0) DEFAULT NULL
@@ -8,7 +8,7 @@ When working with a legacy database that has field like the follwing
 
 propel generates a wrong schema.xml ommitting the scale of the field
 
-This can be reporduced using `make test` where a second migration will be created
+This can be reproduced using `make test` where a second migration will be created
 because the schema does not match with the generated migration.
 
 If you run into trouble on OSX
