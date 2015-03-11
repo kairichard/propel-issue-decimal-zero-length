@@ -17,3 +17,6 @@ If you run into trouble on OSX:
 
   sudo mkdir /var/mysql/
   sudo ln -s /private/tmp/mysql.sock /var/mysql/mysql.sock
+
+
+I think the schema should look like the `expected_schema.xml` to see the differences run `make migrations && diff generated-reversed-database/schema.xml expected_schema.xml`

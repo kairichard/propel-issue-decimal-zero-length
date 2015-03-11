@@ -24,12 +24,14 @@ init:
 	echo "DROP DATABASE IF EXISTS ${MYSQL_DATABASE};CREATE DATABASE ${MYSQL_DATABASE};" | ${MYSQL_CMD}
 	cat create-table.sql | ${MYSQL_CMD} ${MYSQL_DATABASE}
 
-test: clean init
+migrations: clean init
 	${PROPEL_CMD} reverse
 	echo "DROP DATABASE propel;CREATE DATABASE propel;" | ${MYSQL_CMD}
 	${PROPEL_CMD} diff
 	${PROPEL_CMD} migrate
 	sleep 1 # this is needed because of the timestamp in the filename of the migration file
 	${PROPEL_CMD} diff
+
+test: migrations
 	test 1 -eq `find generated-migrations -maxdepth 1 -type f|wc -l` || echo '${FAILURE_MSG}' && exit 1
 
