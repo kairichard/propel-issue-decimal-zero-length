@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="default" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
+  <table name="propel-issue" idMethod="native" phpName="Propel-issue">
+    <column name="conversion_rate" phpName="ConversionRate" type="DECIMAL" size="11" scale="0"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+</database>
