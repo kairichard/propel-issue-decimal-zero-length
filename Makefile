@@ -10,7 +10,7 @@ PROPEL_VERSION?=~2.0@dev
 ENV=MYSQL_PW=${MYSQL_PW} MYSQL_USER=${MYSQL_USER} MYSQL_DATABASE=${MYSQL_DATABASE} MYSQL_HOST=${MYSQL_HOST}
 
 PROPEL_CMD=${ENV} vendor/bin/propel
-MYSQL_CMD=mysql -p${MYSQL_PW} -u${MYSQL_USER} -h ${MYSQL_HOST} ${MYSQL_DATABASE}
+MYSQL_CMD=mysql -p${MYSQL_PW} -u${MYSQL_USER} -h ${MYSQL_HOST}
 
 FAILURE_MSG='Two migration have been created'
 
@@ -22,7 +22,7 @@ clean:
 init:
 	php composer.phar require propel/propel:${PROPEL_VERSION}
 	echo "DROP DATABASE IF EXISTS ${MYSQL_DATABASE};CREATE DATABASE ${MYSQL_DATABASE};" | ${MYSQL_CMD}
-	cat create-table.sql | ${MYSQL_CMD}
+	cat create-table.sql | ${MYSQL_CMD} ${MYSQL_DATABASE}
 
 test: clean init
 	${PROPEL_CMD} reverse
