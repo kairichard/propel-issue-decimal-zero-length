@@ -1,0 +1,12 @@
+propel:
+  paths:
+      schemaDir: ./generated-reversed-database
+      migrationDir: ./migrations
+  database:
+      connections:
+          default:
+              adapter: mysql
+              classname: Propel\Runtime\Connection\ConnectionWrapper
+              dsn: "mysql:host=%env.MYSQL_HOST%;dbname=%env.MYSQL_DATABASE%;"
+              user: %env.MYSQL_USER% 
+              password: %env.MYSQL_PW% 
